@@ -1,13 +1,7 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { HttpParams } from '@angular/common/http';
-
 import { StudentApiService } from './services/studentapi.service';
-
-import { IStudents } from './students/students';
 import * as _ from 'lodash';
-
-
 
 @Component({
   selector: 'app-root',
@@ -15,7 +9,6 @@ import * as _ from 'lodash';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  // title = 'sertifi-example';
 
   @Output() nameArrayFromSummaryOut = new EventEmitter<any>();
   @Output() gpaArrayFromSummaryOut = new EventEmitter<any>();
@@ -27,7 +20,6 @@ export class AppComponent {
     private _router: Router
     ){}
 
-  //urlParameters = Object.assign({}, this._route.snapshot.queryParams); 
 
   studentList!: any;
   mappedYearArray!: any[];
@@ -52,12 +44,7 @@ export class AppComponent {
   nameArrayFromSummary = <any>[];
   gpaArrayFromSummary = <any>[];
   yearArrayFromSummary = <any>[];
-  toggle = true;
-
-  duplicateStartYear(arr: any[]) {
-    return arr.map(o => o.property)
-  }
-
+ 
 
   ngOnInit() {
 
@@ -77,7 +64,7 @@ export class AppComponent {
         this.gpaArrayFromSummary = [];
         this.nameArrayFromSummary =[];
 
-        //**************attendance for loops begin**********************
+        //**************attendance for year and gpa loops begin**********************
 
         for (let i = 0; i < this.yearListArray.length; i++) 
         {
@@ -112,7 +99,7 @@ export class AppComponent {
  
           this.yearAttendenceArray.push(this.yearCount);
           this.yearCount = 0;
-         
+        //**************attendance for year and gpa loops begin**********************
         }
         //**************************overall gpa calc begin************************************************** */
 
@@ -134,81 +121,33 @@ export class AppComponent {
         }
         //**************************overall gpa calc end************************************************** */
 
-        //**************attendance for loops end**********************
+        
 
       });
-
-    console.log(this.studentList);
-    console.log("***************attendence***********************");
-
+  
   }
 
   sendNameArray(completeNamesAttendedArray: any) {
-    console.log("made it to sendName");
-    console.log(completeNamesAttendedArray);
     this.nameArrayFromSummary.push(completeNamesAttendedArray);
     this.nameArrayFromSummaryOut.emit(completeNamesAttendedArray);
   }
 
   sendGpaArray(yearGpaBeforeAvgArray: any) {
-    console.log("made it to sendGPA");
-    console.log(yearGpaBeforeAvgArray);
     this.gpaArrayFromSummary.push(yearGpaBeforeAvgArray);
     this.gpaArrayFromSummaryOut.emit(yearGpaBeforeAvgArray);
   }
   
   sendYearArray(yearListArray : any){
-    console.log("made it to sendYear");
-    console.log(yearListArray)
     this.yearArrayFromSummary.push(yearListArray);
     this.yearArrayFromSummaryOut.emit(yearListArray);
   }
-  
-  switchToggle(){
-    console.log("hit toggle");
-    if(this.toggle = true)
-    {
-      this.toggle = false;
-    }else{
-      this.toggle = true;
-    }
-  }
 
   isHomeRoute() { 
-    // this.gpaArrayFromSummary = [];
-    // this.yearArrayFromSummary = [];
-    // this.nameArrayFromSummary = [];
-
     return this._router.url.includes("/home");
-}
+  }
 
   trackByIndex(index: number, obj: any): any {
     return index;
   }
 
-  
-  /*
-  updateParams(indexValue: number ){
-    console.log("hit params");
-    let params = new HttpParams();
-    params = params.append('year', indexValue);
-    this._router.navigate([], { relativeTo: this._route, queryParams: this.urlParameters });
-  }
-*/
-  /*
-  navigateToFoo(){
-    // changes the route without moving from the current view or
-    // triggering a navigation event,
-    this._router.navigate([], {
-     relativeTo: this._route,
-     queryParams: {
-       yearIndex: '123'
-     },
-     queryParamsHandling: 'merge',
-     // preserve the existing query params in the route
-     skipLocationChange: false
-     // do not trigger navigation
-   });
-  }
-*/
 }

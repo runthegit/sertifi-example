@@ -3,14 +3,14 @@
 
 <header>
   <nav class="menu">
-    <a href="/" class="nav-link" >
+    <a href="/" class="nav-link">
       <button mat-raised-button color="primary"> Home </button>
     </a>
   </nav>
 </header>
 
 
-<h2 *ngIf="isHomeRoute()"> Sertifi Student Year Summary</h2>
+<h2>Sertifi Student Year Summary</h2>
 <div class="grid-container" *ngIf="isHomeRoute()">
   <table>
     <tr>
@@ -20,10 +20,12 @@
     </tr>
     <tr>
       <td>
-        <div class="flex-child" *ngFor="let years of yearListArray; let index = index; trackBy:trackByIndex;" style="padding: 5px 5px 5px 5px">
+        <div class="flex-child" *ngFor="let years of yearListArray; let index = index; trackBy:trackByIndex;"
+          style="padding: 5px 5px 5px 5px">
           <span style="padding: 5px 5px 5px 5px">
             <a class="button" routerLink="/year-details" routerLinkActive="activebutton">
-              <button mat-raised-button color="primary" ngDefaultControl [(ngModel)]="yearListArray[index]" (click)="sendNameArray(completeNamesAttendedArray[index]); sendGpaArray(yearGpaBeforeAvgArray[index]); sendYearArray(yearListArray[index]); ">
+              <button mat-raised-button color="primary" ngDefaultControl [(ngModel)]="yearListArray[index]"
+                (click)="sendNameArray(completeNamesAttendedArray[index]); sendGpaArray(yearGpaBeforeAvgArray[index]); sendYearArray(yearListArray[index]); ">
                 {{years}}
               </button>
             </a>
@@ -60,50 +62,50 @@
 </div>
 <h3 *ngIf="!isHomeRoute()">(Click the Home Button for entire summary)</h3>
 <div class="grid-container" *ngIf="!isHomeRoute()">
-  
+
   <table>
     <tr>
       <th>Year</th>
-      <th>Names attended</th>
-      <th>Year GPA Array</th>
+      <th>Student(s)</th>
+      <th>Student(s) GPA</th>
     </tr>
     <tr>
       <td>
-          <div class="flex-child" *ngFor="let year of yearArrayFromSummary;" style="padding: 5px 5px 5px 5px">
-            <span style="padding: 5px 5px 5px 5px">
-              <a class="button" routerLink="/year-details" routerLinkActive="activebutton">
-                <button mat-raised-button color="primary">
-                  {{year}}
-                </button>
-              </a>
-              <br>
-            </span>
-          </div>
-        </td>
+        <div class="flex-child" *ngFor="let year of yearArrayFromSummary;" style="padding: 5px 5px 5px 5px">
+          <span style="padding: 5px 5px 5px 5px">
+            <a class="button" routerLink="/year-details" routerLinkActive="activebutton">
+              <button mat-raised-button color="primary">
+                {{year}}
+              </button>
+            </a>
+            <br>
+          </span>
+        </div>
+      </td>
       <td>
-          <div class="flex-child" *ngFor="let names of nameArrayFromSummary;" style="padding: 5px 5px 5px 5px">
-            <span style="padding: 5px 5px 5px 5px">
-              <a class="button" routerLink="/year-details" routerLinkActive="activebutton">
-                <button mat-raised-button color="primary">
-                  {{names}}
-                </button>
-              </a>
-              <br>
-            </span>
-          </div>
-        </td>
-        <td>
-          <div class="flex-child" *ngFor="let gpas of gpaArrayFromSummary;" style="padding: 5px 5px 5px 5px">
-            <span style="padding: 5px 5px 5px 5px">
-              <a class="button" routerLink="/year-details" routerLinkActive="activebutton">
-                <button mat-raised-button color="primary">
-                  {{gpas}}
-                </button>
-              </a>
-              <br>
-            </span>
-          </div>
-        </td>
-      </tr>
+        <div class="flex-child" *ngFor="let names of nameArrayFromSummary;" style="padding: 5px 5px 5px 5px">
+          <span style="padding: 5px 5px 5px 5px">
+            <a class="button" routerLink="/year-details" routerLinkActive="activebutton">
+              <button mat-raised-button color="primary">
+                {{names}}
+              </button>
+            </a>
+            <br>
+          </span>
+        </div>
+      </td>
+      <td>
+        <div class="flex-child" *ngFor="let gpas of gpaArrayFromSummary;" style="padding: 5px 5px 5px 5px">
+          <span style="padding: 5px 5px 5px 5px">
+            <a class="button" routerLink="/year-details" routerLinkActive="activebutton">
+              <button mat-raised-button color="primary">
+                {{gpas}}
+              </button>
+            </a>
+            <br>
+          </span>
+        </div>
+      </td>
+    </tr>
   </table>
 </div>
