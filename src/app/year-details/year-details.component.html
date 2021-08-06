@@ -1,0 +1,47 @@
+<div class="grid-container">
+    <table>
+      <tr>
+        <th>Year</th>
+        <th>Names attended</th>
+        <th>Year GPA Array</th>
+      </tr>
+      <tr>
+        <td>
+            <div class="flex-child" style="padding: 5px 5px 5px 5px">
+              <span style="padding: 5px 5px 5px 5px">
+                <a class="button" routerLink="/year-details" routerLinkActive="activebutton">
+                  <button mat-raised-button color="primary">
+                    {{yearListArray}}
+                  </button>
+                </a>
+                <br>
+              </span>
+            </div>
+          </td>
+        <td>
+            <div class="flex-child" style="padding: 5px 5px 5px 5px">
+              <span style="padding: 5px 5px 5px 5px">
+                <a class="button" routerLink="/year-details" routerLinkActive="activebutton">
+                  <button mat-raised-button color="primary">
+                    {{completeNamesAttendedArray}}
+                  </button>
+                </a>
+                <br>
+              </span>
+            </div>
+          </td>
+          <td>
+            <div class="flex-child" style="padding: 5px 5px 5px 5px">
+              <span style="padding: 5px 5px 5px 5px">
+                <a class="button" routerLink="/year-details" routerLinkActive="activebutton">
+                  <button mat-raised-button color="primary">
+                    {{yearGpaBeforeAvgArray}}
+                  </button>
+                </a>
+                <br>
+              </span>
+            </div>
+          </td>
+        </tr>
+    </table>
+</div>
