@@ -22,7 +22,7 @@ export class AppComponent {
 
 
   studentList!: any;
-  mappedYearArray!: any[];
+  
   mappedMinYearArray!: any[];
   mappedMaxYearArray!: any[];
   minYear!: number;
@@ -30,9 +30,11 @@ export class AppComponent {
   yearListArray!: any[];
   yearAttendenceArray = <any>[];
   yearCount!: number;
+
   nameAttended!: string;
   namesAttendedArray = <any>[];
   completeNamesAttendedArray = <any>[];
+
   gpaIndex!: number;
   yearGpaArray = <any>[];
   yearGpaBeforeAvgArray = <any>[];
@@ -40,7 +42,7 @@ export class AppComponent {
   yearGpaAvgCalcNum!: number;
   yearGpaAvgCalcSumNum!: number;
   yearAvgGPA = <any>[];
-  nameYearGpaPairArray = <any>[];
+  
   nameArrayFromSummary = <any>[];
   gpaArrayFromSummary = <any>[];
   yearArrayFromSummary = <any>[];
@@ -99,10 +101,10 @@ export class AppComponent {
  
           this.yearAttendenceArray.push(this.yearCount);
           this.yearCount = 0;
-        //**************attendance for year and gpa loops begin**********************
+        
         }
+        //**************attendance for year and gpa loops begin**********************
         //**************************overall gpa calc begin************************************************** */
-
 
         for (var indBef = 0; indBef < this.yearGpaBeforeAvgArray.length; indBef++) 
         {
@@ -120,11 +122,7 @@ export class AppComponent {
           this.yearGpaAfterAvgArray.push(this.yearGpaAvgCalcNum);
         }
         //**************************overall gpa calc end************************************************** */
-
-        
-
       });
-  
   }
 
   sendNameArray(completeNamesAttendedArray: any) {

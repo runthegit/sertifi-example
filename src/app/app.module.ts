@@ -11,12 +11,11 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { StudentApiService } from './services/studentapi.service';
 import { IStudents } from './students/students';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { YearDetailsComponent } from './year-details/year-details.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    YearDetailsComponent
   ],
   imports: [
     BrowserModule,
